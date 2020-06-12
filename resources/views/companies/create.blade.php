@@ -7,7 +7,7 @@
 
 		<h2>Add a Company</h2>
 
-		<form method="POST" role="form" enctype="multipart form-data" action="{{route('companies.store') }}">
+		<form method="POST" role="form" enctype="multipart/form-data" action="{{route('companies.store') }}">
 		@csrf
 
 			<div class="form-input">

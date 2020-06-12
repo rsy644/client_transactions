@@ -18,6 +18,8 @@ use Illuminate\Support\Facades\Redirect;
 
 use Illuminate\Support\Facades\Input;
 
+use Illuminate\Support\Facades\DB;
+
 
 
 class employees_controller extends Controller
@@ -29,7 +31,9 @@ class employees_controller extends Controller
      */
     public function index()
     {
-        //
+        $employees = DB::table('employees')->paginate(10);
+        
+        return view('employees.index')->with('employees', $employees);
     }
 
     /**
@@ -39,7 +43,8 @@ class employees_controller extends Controller
      */
     public function create($company_id)
     {
-        return view('employees.create')->with('company_id', $company_id);
+        $company = Company::findOrFail($company_id);
+        return view('employees.create')->with('company', $company);
     }
 
     /**
@@ -50,6 +55,12 @@ class employees_controller extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'first_name' => ['required', 'max:255'],
+            'last_name' => ['required', 'max:255'],
+            'email' => ['required', 'email:rfc,dns'],
+            'phone' => ['required', 'max:20']
+        ]);
         if($request->update == 1){
             $employee = Employee::findOrFail($request->employee_id);
             $action = 'updated';

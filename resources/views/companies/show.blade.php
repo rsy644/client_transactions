@@ -3,16 +3,23 @@
 <!--Anything in here, in this section, is what is going to print into our content yield-->
 	
 	<div class="table-container">
-		<h1>{{{ $company->name }}}</h1>
+		<?php echo '<img class="company-logo" src="' . Config::get('app.url') . '/storage/' . $company->logo . '"/>'; ?>
+		<h1 class="company-title">{{{ $company->name }}}</h1>
 
-		<a href="{{route('companies.edit', $company->id) }}">Edit Company</a><br/>
-		<a href="{{route('employees.create', $company->id) }}">Add Employee</a><br/><br/><br/>
-		<?php if($company->email != ""){ ?>
+		<div class="admin-links">
+			<a href="{{route('companies.edit', $company->id) }}">Edit Company</a><br/>
+			<a href="{{route('employees.create', $company->id) }}">Add Employee</a><br/><br/><br/>
+		</div>
+
+		
+
 			<p>Email: <a href="mailto: {{ $company->email }}">{{ $company->email }}</a></p>
-		<?php } ?>
 
-		<p>Website: <a href="{{ $company->website }}">{{ $company->website }}</a></p>
 
+
+			<p>Website: <a href="http://{{ $company->website }}">{{ $company->website }}</a></p>
+
+		
 		<p>Employees:</p>
 		<form class="employees">
 		<meta name="csrf-token" content="{{ csrf_token() }}">
@@ -24,7 +31,9 @@
 				@endforeach
 				</ul>
 			@endif
+
 		</form>
+		{{ $employees->links() }}
 	</div>
 
 	<script>
@@ -39,7 +48,6 @@
 
 			var employee = $(this).parent();
 
-			console.log(employee);
     		// Prevent default posting of form - put here to work in case of errors
     		event.preventDefault();
 

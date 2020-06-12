@@ -18,6 +18,10 @@ use App\Company;
 
 use App\Employee;
 
+use Illuminate\Support\Facades\DB;
+
+use Illuminate\Support\Facades\Auth;
+
 class companies_controller extends Controller
 {
     /**
@@ -27,7 +31,7 @@ class companies_controller extends Controller
      */
     public function index()
     {
-        $companies = Company::get_companies_list();
+        $companies = DB::table('companies')->paginate(10);
         
         return view('companies.index')->with('companies', $companies);
     }
@@ -50,6 +54,13 @@ class companies_controller extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'name' => ['required', 'unique:companies', 'max:255'],
+            'email' => ['required', 'unique:companies', 'email:rfc,dns'],
+            'logo' => ['required'],
+            'website' => ['required']
+        ]);
+
         if($request->update == 1){
             $company = Company::findOrFail($request->company_id);
             $action = 'updated';
@@ -57,9 +68,14 @@ class companies_controller extends Controller
             $company = new Company();
             $action = 'created';
         }
+
+
+
         $company->name = $request->name;
         $company->email = $request->email;
-        $company->logo = $request->logo;
+        $image_name = $request->file('logo')->getClientOriginalName();
+        $file = $request->file('logo')->storeAs('/public', $image_name);
+        $company->logo = $image_name;
         $company->website = $request->website;
         $company->save();
 
@@ -74,7 +90,7 @@ class companies_controller extends Controller
      */
     public function show($id)
     {
-        $employees = Employee::get_employees_list();
+        $employees = DB::table('employees')->paginate(10);
         $company = Company::get_company_from_id($id);
         return view('companies.show')->with(['company' => $company, 'employees' => $employees]);
     }
@@ -92,25 +108,22 @@ class companies_controller extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
      * Remove the specified resource from storage.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function delete($company_id)
     {
-        //
+        $company = Company::findOrFail($company_id)->delete();
+
+        return response()->json(['success' => true],200);
+    }
+
+    public function logout(){        
+
+        Auth::logout();
+
+        return redirect('/');
     }
 }
