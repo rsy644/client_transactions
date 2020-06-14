@@ -75,7 +75,7 @@ class employees_controller extends Controller
         $employee->phone = $request->phone;
         $employee->save();
 
-        $request->session()->flash('success', 'Employee has been ' . $action);
+        $request->session()->flash('success', 'Employee ' . $employee->first_name . ' ' . $employee->last_name . ' has been ' . $action);
         return redirect::route('companies.show', $request->company_id);
     }
 

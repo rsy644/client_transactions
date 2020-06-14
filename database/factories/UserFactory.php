@@ -3,6 +3,7 @@
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 use App\User;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Hash;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,7 +20,7 @@ $factory->define(User::class, function () {
     return [
         'name' => 'Admin',
         'email' => 'admin@admin.com',
-        'password' => 'password', // password
+        'password' => \Hash::make('password'), // password
         'remember_token' => Str::random(10),
         'created_at' => now(),
         'updated_at' => now()
