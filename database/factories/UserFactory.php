@@ -19,8 +19,9 @@ $factory->define(User::class, function () {
     return [
         'name' => 'Admin',
         'email' => 'admin@admin.com',
-        'email_verified_at' => now(),
         'password' => 'password', // password
         'remember_token' => Str::random(10),
+        'created_at' => now(),
+        'updated_at' => now()
     ];
 });
