@@ -2,9 +2,11 @@
 
 # Prerequisites
 
-*Make sure that the 'php' extension is to the path is available inside of your command prompt, and check that 'php artisan' commands are working correctly.
+* Clone or download the project into the root directory of your local web server (commonly titled 'www' or 'htdocs').
 
-*Make sure composer is installed on the local system by running the command 'composer install'.
+* Make sure that the 'php' extension is to the path is available inside of your command prompt, and check that 'php artisan' commands are working correctly.
+
+* Make sure composer is installed on the local system by running the command 'composer install' inside the root directory of the laravel 'company-employees' project.
 
 * Create a new blank database in the local phpmyadmin and call it something relevant (eg. employee_companies).
 
