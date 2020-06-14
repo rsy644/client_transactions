@@ -79,7 +79,7 @@ class companies_controller extends Controller
         $company->website = $request->website;
         $company->save();
 
-        return redirect::route('companies.index')->with('success', 'Company ' . $company->name . ' was ' . $action . '!');
+        return redirect::route('companies.index')->with('success', 'Company "' . $company->name . '" was ' . $action . '!');
     }
 
     /**
