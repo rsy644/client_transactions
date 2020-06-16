@@ -12,16 +12,16 @@
 |
 */
 
-Route::get('/', ['as' => 'index', 'uses' => 'companies_controller@index'])->middleware('auth');
+Route::get('/', ['as' => 'index', 'uses' => 'clients_controller@index'])->middleware('auth');
 
-Route::resource('companies', 'companies_controller', ['except' => ['delete', 'update']]);
-Route::delete('/companies/{company_id}/delete', ['as' => 'companies.delete', 'uses' => 'companies_controller@delete']);
+Route::resource('clients', 'clients_controller', ['except' => ['delete', 'update']]);
+Route::delete('/clients/{client_id}/delete', ['as' => 'clients.delete', 'uses' => 'clients_controller@delete']);
 
-Route::resource('employees', 'employees_controller', ['except' => ['create', 'delete', 'edit', 'show', 'update']]);
-Route::get('/employees/create/{employee_id}', ['as' => 'employees.create', 'uses' => 'employees_controller@create']);
-Route::get('/employees/{company_id}/edit/{employee_id}', ['as' => 'employees.edit', 'uses' => 'employees_controller@edit']);
-Route::get('/employees/{company_id}/{employee_id}', ['as' => 'employees.show', 'uses' => 'employees_controller@show']);
-Route::delete('/employees/{employee_id}/delete', ['as' => 'employees.delete', 'uses' => 'employees_controller@delete']);
+Route::resource('transactions', 'transactions_controller', ['except' => ['create', 'delete', 'edit', 'show', 'update']]);
+Route::get('/transactions/create/{transaction_id}', ['as' => 'transactions.create', 'uses' => 'transactions_controller@create']);
+Route::get('/transactions/{client_id}/edit/{transaction_id}', ['as' => 'transactions.edit', 'uses' => 'transactions_controller@edit']);
+Route::get('/transactions/{client_id}/{transaction_id}', ['as' => 'transactions.show', 'uses' => 'transactions_controller@show']);
+Route::delete('/transactions/{transaction_id}/delete', ['as' => 'transactions.delete', 'uses' => 'transactions_controller@delete']);
 
 
 Route::get('/home', ['as' => 'home.index', 'uses' => 'home_controller@index']);

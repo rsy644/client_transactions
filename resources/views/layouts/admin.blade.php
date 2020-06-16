@@ -81,18 +81,18 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <li class="nav-item has-treeview menu-open">
-            <a href="{{ route('companies.index') }}" class="nav-link">
-              <i class="nav-icon fas fa-building"></i>
+            <a href="{{ route('clients.index') }}" class="nav-link">
+              <i class="nav-icon fas fa-users"></i>
               <p>
-                Companies
+                Clients
               </p>
             </a>
           </li>
           <li class="nav-item">
-            <a href="{{ route('employees.index') }}" class="nav-link">
-              <i class="nav-icon fas fa-users"></i>
+            <a href="{{ route('transactions.index') }}" class="nav-link">
+              <i class="nav-icon fas fa-money-bill-wave"></i>
               <p>
-                Employees
+                Transactions
               </p>
             </a>
           </li>

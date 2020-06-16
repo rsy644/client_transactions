@@ -6,22 +6,22 @@ use Illuminate\Database\Eloquent\Model;
 
 use DB;
 
-class Company extends Model
+class Client extends Model
 {
-    protected $table = 'companies';
+    protected $table = 'clients';
 	protected $primaryKey = 'id';
 	
 	public $timestamps = false;
 
-	public static function get_companies_list(){
-		$query = db::select("SELECT * FROM companies");
+	public static function get_clients_list(){
+		$query = db::select("SELECT * FROM clients");
 
 		return $query;
 	}
 
-	public static function get_company_from_id($id){
+	public static function get_client_from_id($id){
 		$query = db::select("SELECT *
-			FROM companies
+			FROM clients
 			WHERE id = ?",
 			[$id]);
 

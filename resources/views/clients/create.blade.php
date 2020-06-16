@@ -5,9 +5,11 @@
 
 	<div class="table-container">
 
-		<h2>Add an Employee</h2>
+		<a class="back-link" href="{{ url()->previous() }}">Back</a>
 
-		<form method="POST" role="form" enctype="multipart form-data" action="{{route('employees.store') }}">
+		<h2 style="clear: left">Add a Client</h2>
+
+		<form method="POST" role="form" enctype="multipart/form-data" action="{{route('clients.store') }}">
 		@csrf
 
 			<div class="form-input">
@@ -18,18 +20,16 @@
 			<div class="form-input">
 				<label for="last_name">Last Name</label>
 				<input id="last_name" name="last_name" class="last_name" value="">
+
 			</div>
+			<div class="form-input">
+				<label for="avatar">Avatar</label>
+				<input type="file" id="avatar" name="avatar" class="avatar" value="">
 
-			<input type="hidden" id="company_id" name="company_id" value="{{ $company->id }}">
-
+			</div>
 			<div class="form-input">
 				<label for="email">Email</label>
 				<input id="email" name="email" class="email" value="">
-
-			</div>
-			<div class="form-input">
-				<label for="phone">Phone</label>
-				<input id="phone" name="phone" class="phone" value="">
 			</div>
 
 			<input type="submit" class="btn btn-success submit" value="Add">

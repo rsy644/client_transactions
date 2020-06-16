@@ -30,16 +30,17 @@ span.delete {
 
 }
 
-img.company-logo {
+img.client-avatar {
 	width: 100px;
 	float: left;
 	margin-right: 10px;
 	padding-bottom: 30px;
+	clear: left;
 }
 
-.company-title {
+.client-title {
 	float: left;
-	margin-top: 30px;
+	margin-top: 25px;
 }
 
 .admin-links {
@@ -63,6 +64,15 @@ ul.nav.nav-pills .nav-sidebar-flex-column li.nav-item a.nav-link {
 	background-color: #007bff !important;
 }
 
+label {
+	width: 140px;
+}
+
 label.form-check-label {
     width: 500px;
+}
+
+.back-link {
+    float: left;
+    margin-bottom: 30px !important;
 }

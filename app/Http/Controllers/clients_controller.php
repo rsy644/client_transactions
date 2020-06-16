@@ -14,15 +14,15 @@ use Illuminate\Support\Facades\Redirect;
 
 use Illuminate\Support\Facades\Input;
 
-use App\Company;
+use App\Client;
 
-use App\Employee;
+use App\Transaction;
 
 use Illuminate\Support\Facades\DB;
 
 use Illuminate\Support\Facades\Auth;
 
-class companies_controller extends Controller
+class clients_controller extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -31,9 +31,9 @@ class companies_controller extends Controller
      */
     public function index()
     {
-        $companies = DB::table('companies')->paginate(10);
+        $clients = DB::table('clients')->paginate(10);
         
-        return view('companies.index')->with('companies', $companies);
+        return view('clients.index')->with('clients', $clients);
     }
 
     /**
@@ -43,7 +43,7 @@ class companies_controller extends Controller
      */
     public function create()
     {
-        return view('companies.create');
+        return view('clients.create');
     }
 
     /**
@@ -55,31 +55,29 @@ class companies_controller extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => ['required', 'unique:companies', 'max:255'],
-            'email' => ['required', 'unique:companies', 'email:rfc,dns'],
-            'logo' => ['required'],
-            'website' => ['required']
+            'first_name' => ['required', 'unique:clients', 'max:255'],
+            'last_name' => ['required', 'unique:clients', 'max:255'],
+            'avatar' => ['required'],
+            'email' => ['required', 'email:rfc,dns']
         ]);
 
         if($request->update == 1){
-            $company = Company::findOrFail($request->company_id);
+            $client = Client::findOrFail($request->client_id);
             $action = 'updated';
         } else {
-            $company = new Company();
+            $client = new Client();
             $action = 'created';
         }
 
+        $client->first_name = $request->first_name;
+        $client->last_name = $request->last_name;
+        $image_name = $request->file('avatar')->getClientOriginalName();
+        $file = $request->file('avatar')->storeAs('/public', $image_name);
+        $client->avatar = $image_name;
+        $client->email = $request->email;
+        $client->save();
 
-
-        $company->name = $request->name;
-        $company->email = $request->email;
-        $image_name = $request->file('logo')->getClientOriginalName();
-        $file = $request->file('logo')->storeAs('/public', $image_name);
-        $company->logo = $image_name;
-        $company->website = $request->website;
-        $company->save();
-
-        return redirect::route('companies.index')->with('success', 'Company "' . $company->name . '" was ' . $action . '!');
+        return redirect::route('clients.index')->with('success', 'Client "' . $client->first_name . ' ' . $client->last_name . '" was ' . $action . '!');
     }
 
     /**
@@ -90,9 +88,9 @@ class companies_controller extends Controller
      */
     public function show($id)
     {
-        $employees = DB::table('employees')->paginate(10);
-        $company = Company::get_company_from_id($id);
-        return view('companies.show')->with(['company' => $company, 'employees' => $employees]);
+        $transactions = DB::table('transactions')->paginate(10);
+        $client = Client::get_client_from_id($id);
+        return view('clients.show')->with(['client' => $client, 'transactions' => $transactions]);
     }
 
     /**
@@ -103,8 +101,8 @@ class companies_controller extends Controller
      */
     public function edit($id)
     {
-        $company = Company::get_company_from_id($id);
-        return view('companies.edit')->with('company', $company);
+        $client = Client::get_client_from_id($id);
+        return view('clients.edit')->with('client', $client);
     }
 
     /**
@@ -113,9 +111,9 @@ class companies_controller extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function delete($company_id)
+    public function delete($client_id)
     {
-        $company = Company::findOrFail($company_id)->delete();
+        $client = Client::findOrFail($client_id)->delete();
 
         return response()->json(['success' => true],200);
     }
