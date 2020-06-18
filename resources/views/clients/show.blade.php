@@ -3,7 +3,7 @@
 <!--Anything in here, in this section, is what is going to print into our content yield-->
 	
 	<div class="table-container">
-		<a class="back-link" href="{{ url()->previous() }}">Back</a>
+		<a class="back-link" href="{{ route('clients.index') }}">< Back</a>
 
 		<?php echo '<img class="client-avatar" src="' . Config::get('app.url') . '/storage/' . $client->avatar . '"/>'; ?>
 		<h1 class="client-title">{{{ $client->first_name . ' ' . $client->last_name }}}</h1>

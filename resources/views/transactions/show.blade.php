@@ -3,7 +3,7 @@
 <!--Anything in here, in this section, is what is going to print into our content yield-->
 	
 	<div class="table-container">
-	<a class="back-link" href="{{ url()->previous() }}">< Back</a>
+	<a class="back-link" href="{{ route('clients.show', $client->id) }}">< Back</a>
 
 	@php
 	$formatted_date = date_create_from_format('Y-m-d H:i:s', $transaction->transaction_date);

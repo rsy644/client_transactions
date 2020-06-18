@@ -4,7 +4,7 @@
 	@if (!Auth::guest()) <!--if user has registered and logged in-->
 
 	<div class="table-container">
-		<a class="back-link" href="{{ url()->previous() }}">Back</a>
+		<a class="back-link" href="{{ route('clients.show', $client->id) }}">< Back</a>
 
 		<h2 style="clear: left;">Edit a Transaction</h2>
 

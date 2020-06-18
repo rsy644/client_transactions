@@ -5,7 +5,7 @@
 
 	<div class="table-container">
 
-		<a class="back-link" href="{{ url()->previous() }}">Back</a>
+		<a class="back-link" href="{{ route('clients.index') }}">< Back</a>
 
 		<h2 style="clear: left">Add a Client</h2>
 
