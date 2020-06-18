@@ -1,4 +1,4 @@
-# Welcome to the Employee Companies CRM. Here are some steps to get started:
+# Welcome to the Client Transactions CRM. Here are some steps to get started:
 
 # Prerequisites
 
@@ -8,7 +8,7 @@
 
 * Navigate (or 'cd') into the root directory of the laravel project and make sure composer is installed on the local system by running the command 'composer install'. If any alerts appear saying that files are not up to date, run the command 'composer update'.
 
-* Create a new blank database in the local phpmyadmin and call it something relevant (eg. company_employees).
+* Create a new blank database in the local phpmyadmin and call it something relevant (eg. client_transactions).
 
 * Rename the .env.example file to '.env'.
 
