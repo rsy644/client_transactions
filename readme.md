@@ -18,6 +18,6 @@
 
 * From the root directory, run 'php artisan serve'.
 
-* Navigate to http://127.0.0.1:8000 in your url field, and log in with 'admin@admin.com' and password: 'password'. The app will then launch.
+* Inside of the .env file, after the 'APP_KEY=' constant use the following application key: 'ABCDEF123ERD456EABCDEF123ERD456E'. Then run 'php artisan config cache'.
 
-* If the screen prompts that 'No Application Key has been specified', use the following key: 'ABCDEF123ERD456EABCDEF123ERD456E' and place this straight after the 'APP_KEY=' constant in the env file. Then run 'php artisan config cache'.
+* Navigate to http://127.0.0.1:8000 in your url field, and log in with 'admin@admin.com' and password: 'password'. The app will then launch.
