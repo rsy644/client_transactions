@@ -12,9 +12,19 @@
 |
 */
 
-Route::get('/', ['as' => 'index', 'uses' => 'clients_controller@index'])->middleware('auth');
+Route::get('/', ['as' => 'clients.index', 'uses' => 'clients_controller@index'])->middleware('auth');
 
-Route::resource('clients', 'clients_controller', ['except' => ['delete', 'update']]);
+
+Route::get('/clients/create', ['as' => 'clients.create', 'uses' => 'clients_controller@create']);
+Route::post('/clients', ['as' => 'clients.store', 'uses' => 'clients_controller@store']);
+Route::get('/clients/{client}', ['as' => 'clients.show', 'uses' => 'clients_controller@show']);
+Route::get('/clients/{client}/edit', ['as' => 'clients.edit', 'uses' => 'clients_controller@edit']);
+Route::put('/clients/{client}/update', ['as' => 'clients.update', 'uses' => 'clients_controller@update']);
+
+
+
+
+
 Route::delete('/clients/{client_id}/delete', ['as' => 'clients.delete', 'uses' => 'clients_controller@delete']);
 
 Route::resource('transactions', 'transactions_controller', ['except' => ['create', 'delete', 'edit', 'show', 'update']]);
