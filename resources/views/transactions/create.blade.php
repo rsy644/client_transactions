@@ -4,11 +4,11 @@
 	@if (!Auth::guest()) <!--if user has registered and logged in-->
 
 	<div class="table-container">
-		<a class="back-link" href="{{ route('clients.show', $client->id)) }}">< Back</a>
+		<a class="back-link" href="{{ route('clients.show', $client->id) }}">< Back</a>
 
 		<h2 style="clear: left">Add a Transaction</h2>
 
-		<form method="POST" role="form" enctype="multipart form-data" action="{{route('transactions.store') }}">
+		<form method="POST" role="form" enctype="multipart/form-data" action="{{route('transactions.store') }}">
 		@csrf
 
 			<div class="form-input">

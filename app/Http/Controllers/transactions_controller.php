@@ -72,9 +72,16 @@ class transactions_controller extends Controller
 
         $formatted_date = date_create_from_format('d/m/Y', $request->transaction_date);
         $date = $formatted_date->format('Y-m-d');
-        $transaction->client = $request->client_id;
-        $transaction->transaction_date = $date;
-        $transaction->amount = $request->amount;
+        if(!isset($transaction->client) || $transaction->client != $request->client_id){
+            $transaction->client = $request->client_id;
+        }
+        if(!isset($transaction->client) || $transaction->transaction_date != $date){
+            $transaction->transaction_date = $date;
+        }
+        if(!isset($transaction->client) || $transaction->amount != $request->amount){
+            $transaction->amount = $request->amount;
+        }
+
         $transaction->save();
 
         $request->session()->flash('success', 'Transaction ' . $transaction->date . ' has been ' . $action);

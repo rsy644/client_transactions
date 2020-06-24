@@ -8,7 +8,7 @@
 
 		<h2 style="clear: left">Edit a Client</h2>
 
-		<form method="POST" role="form" enctype="multipart form-data" action="{{route('clients.store') }}">
+		<form method="POST" role="form" enctype="multipart/form-data" action="{{route('clients.store') }}">
 		@csrf
 			<input type="hidden" name="update" value="1">
 			<input type="hidden" name="client_id" value="{{ $client->id }}">

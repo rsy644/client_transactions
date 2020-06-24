@@ -8,7 +8,7 @@
 
 		<h2 style="clear: left;">Edit a Transaction</h2>
 
-		<form method="POST" role="form" enctype="multipart form-data" action="{{route('transactions.store') }}">
+		<form method="POST" role="form" enctype="multipart/form-data" action="{{route('transactions.store') }}">
 		@csrf
 
 			<input type="hidden" name="update" value="1">

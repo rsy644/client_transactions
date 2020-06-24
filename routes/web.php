@@ -26,13 +26,12 @@ Route::put('/clients/{client}/update', ['as' => 'clients.update', 'uses' => 'cli
 
 
 Route::delete('/clients/{client_id}/delete', ['as' => 'clients.delete', 'uses' => 'clients_controller@delete']);
-
+Route::get('/transactions', ['as' => 'transactions.index', 'uses' => 'transactions_controller@index']);
 Route::resource('transactions', 'transactions_controller', ['except' => ['create', 'delete', 'edit', 'show', 'update']]);
 Route::get('/transactions/create/{transaction_id}', ['as' => 'transactions.create', 'uses' => 'transactions_controller@create']);
 Route::get('/transactions/{client_id}/edit/{transaction_id}', ['as' => 'transactions.edit', 'uses' => 'transactions_controller@edit']);
 Route::get('/transactions/{client_id}/{transaction_id}', ['as' => 'transactions.show', 'uses' => 'transactions_controller@show']);
 Route::delete('/transactions/{transaction_id}/delete', ['as' => 'transactions.delete', 'uses' => 'transactions_controller@delete']);
-
 
 Route::get('/home', ['as' => 'home.index', 'uses' => 'home_controller@index']);
 

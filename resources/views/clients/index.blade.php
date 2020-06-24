@@ -14,13 +14,15 @@
 
 			@if(isset($clients) && count($clients) > 0)
 				<form class="clients">
-				<meta name="csrf-token" content="{{ csrf_token() }}">		
+				<meta name="csrf-token" content="{{ csrf_token() }}">
+					<ul class="client_list">	
 
-			  		@foreach ($clients as $client)
+				  		@foreach ($clients as $client)
 
-			  			<li><a href="{{ route('clients.show', $client->id) }}">{{ $client->first_name . ' ' . $client->last_name }}</a>
-			  			<span class="delete" data-val="{{ $client->id }}">x</span></li>
-					@endforeach
+				  			<li><a href="{{ route('clients.show', $client->id) }}">{{ $client->first_name . ' ' . $client->last_name }}</a>
+				  			<span class="delete" data-val="{{ $client->id }}">x</span></li>
+						@endforeach
+					</ul>
 
 				</form>
 
