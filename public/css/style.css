@@ -76,3 +76,7 @@ label.form-check-label {
     float: left;
     margin-bottom: 30px !important;
 }
+
+.delete_button {
+	cursor: pointer;
+}

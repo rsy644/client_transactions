@@ -22,7 +22,7 @@ use Illuminate\Support\Facades\DB;
 
 use Illuminate\Support\Facades\Auth;
 
-class clients_controller extends Controller
+class clientController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -67,9 +67,9 @@ class clients_controller extends Controller
             $client = new Client();
             $action = 'created';
             $request->validate([
-                'first_name' => ['unique'],
-                'last_name' => ['unique'],
-                'avatar' => ['required']
+                'first_name' => ['unique:clients'],
+                'last_name' => ['unique:clients'],
+                'avatar' => 'required'
             ]);
         }
 
@@ -89,7 +89,8 @@ class clients_controller extends Controller
             $client->email = $request->email;
         }
         $client->save();
-        return redirect::route('clients.show', $request->client_id)->with('success', 'Client "' . $client->first_name . ' ' . $client->last_name . '" was ' . $action . '!');
+
+        return redirect::route('clients.index')->with('success', 'Client "' . $client->first_name . ' ' . $client->last_name . '" was ' . $action . '!');
     }
 
     /**
@@ -101,8 +102,8 @@ class clients_controller extends Controller
     public function show($id)
     {
         $transactions = DB::table('transactions')->paginate(10);
-        $client = Client::get_client_from_id($id);
-        return view('clients.show')->with(['client' => $client, 'transactions' => $transactions]);
+        $client = DB::table('clients')->where('id', '=', $id)->get();
+        return view('clients.show')->with(['client' => $client[0], 'transactions' => $transactions]);
     }
 
     /**
@@ -113,8 +114,8 @@ class clients_controller extends Controller
      */
     public function edit($id)
     {
-        $client = Client::get_client_from_id($id);
-        return view('clients.edit')->with('client', $client);
+        $client = DB::table('clients')->where('id', '=', $id)->get();
+        return view('clients.edit')->with('client', $client[0]);
     }
 
     /**

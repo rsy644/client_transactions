@@ -22,7 +22,7 @@ use Illuminate\Support\Facades\DB;
 
 
 
-class transactions_controller extends Controller
+class transactionController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -72,13 +72,13 @@ class transactions_controller extends Controller
 
         $formatted_date = date_create_from_format('d/m/Y', $request->transaction_date);
         $date = $formatted_date->format('Y-m-d');
-        if(!isset($transaction->client) || $transaction->client != $request->client_id){
-            $transaction->client = $request->client_id;
+        if(!isset($transaction->client_id) || $transaction->client_id != $request->client_id){
+            $transaction->client_id = $request->client_id;
         }
-        if(!isset($transaction->client) || $transaction->transaction_date != $date){
+        if(!isset($transaction->client_id) || $transaction->transaction_date != $date){
             $transaction->transaction_date = $date;
         }
-        if(!isset($transaction->client) || $transaction->amount != $request->amount){
+        if(!isset($transaction->client_id) || $transaction->amount != $request->amount){
             $transaction->amount = $request->amount;
         }
 
@@ -109,9 +109,9 @@ class transactions_controller extends Controller
      */
     public function edit($client_id, $transaction_id)
     {
-        $client = Client::get_client_from_id($client_id);
-        $transaction = Transaction::get_transaction_from_id($transaction_id);
-        return view('transactions.edit')->with(['client' => $client, 'transaction' => $transaction]);
+        $client = DB::table('clients')->where('id', '=', $id)->get();
+        $transaction = DB::table('transaction')->where('id', '=', $transaction_id)->get();
+        return view('transactions.edit')->with(['client' => $client[0], 'transaction' => $transaction]);
     }
 
 

@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 use DB;
 
+use App\Transaction;
+
 class Client extends Model
 {
     protected $table = 'clients';
@@ -13,18 +15,7 @@ class Client extends Model
 	
 	public $timestamps = false;
 
-	public static function get_clients_list(){
-		$query = db::select("SELECT * FROM clients");
-
-		return $query;
-	}
-
-	public static function get_client_from_id($id){
-		$query = db::select("SELECT *
-			FROM clients
-			WHERE id = ?",
-			[$id]);
-
-		return $query[0];
+	public function transaction(){
+		return $this->hasMany('App\Transaction');
 	}
 }

@@ -57,13 +57,12 @@
 		// Bind to the submit event of our form
 		$(".delete_button").click(function(event){
 
+			$('.alert-success').hide();
+
 			var transaction_id = $(this).data('val');
 
 
 			var transaction = $('li[data-transactionID="' + transaction_id + '"]');
-
-			console.log(transaction_id);
-			console.log($('li[data-transactionID="' + transaction_id + '"]'));
 
     		// Prevent default posting of form - put here to work in case of errors
     		event.preventDefault();

@@ -12,28 +12,29 @@
 |
 */
 
-Route::get('/', ['as' => 'clients.index', 'uses' => 'clients_controller@index'])->middleware('auth');
+Route::get('/', ['as' => 'clients.index', 'uses' => 'clientController@index'])->middleware('auth');
 
 
-Route::get('/clients/create', ['as' => 'clients.create', 'uses' => 'clients_controller@create']);
-Route::post('/clients', ['as' => 'clients.store', 'uses' => 'clients_controller@store']);
-Route::get('/clients/{client}', ['as' => 'clients.show', 'uses' => 'clients_controller@show']);
-Route::get('/clients/{client}/edit', ['as' => 'clients.edit', 'uses' => 'clients_controller@edit']);
-Route::put('/clients/{client}/update', ['as' => 'clients.update', 'uses' => 'clients_controller@update']);
+Route::get('/clients/create', ['as' => 'clients.create', 'uses' => 'clientController@create']);
+Route::post('/clients', ['as' => 'clients.store', 'uses' => 'clientController@store']);
+Route::get('/clients/{client}', ['as' => 'clients.show', 'uses' => 'clientController@show']);
+Route::get('/clients/{client}/edit', ['as' => 'clients.edit', 'uses' => 'clientController@edit']);
+Route::put('/clients/{client}/update', ['as' => 'clients.update', 'uses' => 'clientController@update']);
+Route::delete('/clients/{client}/delete', ['as' => 'clients.delete', 'uses' => 'clientController@delete']);
 
 
 
 
 
-Route::delete('/clients/{client_id}/delete', ['as' => 'clients.delete', 'uses' => 'clients_controller@delete']);
-Route::get('/transactions', ['as' => 'transactions.index', 'uses' => 'transactions_controller@index']);
-Route::resource('transactions', 'transactions_controller', ['except' => ['create', 'delete', 'edit', 'show', 'update']]);
-Route::get('/transactions/create/{transaction_id}', ['as' => 'transactions.create', 'uses' => 'transactions_controller@create']);
-Route::get('/transactions/{client_id}/edit/{transaction_id}', ['as' => 'transactions.edit', 'uses' => 'transactions_controller@edit']);
-Route::get('/transactions/{client_id}/{transaction_id}', ['as' => 'transactions.show', 'uses' => 'transactions_controller@show']);
-Route::delete('/transactions/{transaction_id}/delete', ['as' => 'transactions.delete', 'uses' => 'transactions_controller@delete']);
+Route::delete('/clients/{client_id}/delete', ['as' => 'clients.delete', 'uses' => 'clientController@delete']);
+Route::get('/transactions', ['as' => 'transactions.index', 'uses' => 'transactionController@index']);
+Route::resource('transactions', 'transactionController', ['except' => ['create', 'delete', 'edit', 'show', 'update']]);
+Route::get('/transactions/create/{transaction_id}', ['as' => 'transactions.create', 'uses' => 'transactionController@create']);
+Route::get('/transactions/{client_id}/edit/{transaction_id}', ['as' => 'transactions.edit', 'uses' => 'transactionController@edit']);
+Route::get('/transactions/{client_id}/{transaction_id}', ['as' => 'transactions.show', 'uses' => 'transactionController@show']);
+Route::delete('/transactions/{transaction_id}/delete', ['as' => 'transactions.delete', 'uses' => 'transactionController@delete']);
 
-Route::get('/home', ['as' => 'home.index', 'uses' => 'home_controller@index']);
+Route::get('/home', ['as' => 'home.index', 'uses' => 'homeController@index']);
 
 Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
 

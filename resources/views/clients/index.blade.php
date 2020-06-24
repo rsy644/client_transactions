@@ -15,12 +15,29 @@
 			@if(isset($clients) && count($clients) > 0)
 				<form class="clients">
 				<meta name="csrf-token" content="{{ csrf_token() }}">
-					<ul class="client_list">	
-
+					<ul class="client_list">
+					
 				  		@foreach ($clients as $client)
+				  			<li data-clientID="{{ $client->id }}"><a href="{{ route('clients.show', $client->id) }}">{{ $client->first_name . ' ' . $client->last_name }}</a>
+					  			<span class="delete_button" data-toggle="modal" data-target="#delete_modal_<?php echo $client->id; ?>">x</span>
 
-				  			<li><a href="{{ route('clients.show', $client->id) }}">{{ $client->first_name . ' ' . $client->last_name }}</a>
-				  			<span class="delete" data-val="{{ $client->id }}">x</span></li>
+					  			<div class="modal fade" id="delete_modal_<?php echo $client->id; ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+									<div class="modal-dialog" role="document">
+								    	<div class="modal-content">
+								      		<div class="modal-header">	        
+								        		<h4 class="modal-title" id="myModalLabel">Are you sure you want to delete client '<?php echo $client->first_name . ' ' . $client->last_name ; ?>'?</h4>
+								        		<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+								      		</div>
+								     		<div class="modal-footer">
+										        <button type="button" data-val="{{ $client->id }}" class="delete_button btn btn-default" data-dismiss="modal">Yes</button>
+										        <button type="button" class="btn btn-primary">No</button>
+						      				</div>
+						    			</div>
+						  			</div>
+						  		</div>
+						  	</li>
+
+
 						@endforeach
 					</ul>
 
@@ -45,14 +62,19 @@
 		var request;
 
 		// Bind to the submit event of our form
-		$(".delete").click(function(event){
+		$(".delete_button").click(function(event){
+
+			// Prevent default posting of form - put here to work in case of errors
+    		event.preventDefault();
+
+    		$('.alert-success').hide();
 
 			var client_id = $(this).data('val');
 
-			var client = $(this).parent();
 
-    		// Prevent default posting of form - put here to work in case of errors
-    		event.preventDefault();
+			var client = $('li[data-clientID="' + client_id + '"]');
+
+    		
 
     		$.ajaxSetup({
     			headers: {

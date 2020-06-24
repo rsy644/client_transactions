@@ -15,7 +15,8 @@ class TransactionsTable extends Migration
     {
         Schema::create('transactions', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('client')->unsigned;
+            $table->integer('client_id')->unsigned;
+            $table->foreign('client_id')->references('id')->on('clients');
             $table->dateTime('transaction_date');
             $table->integer('amount');
         });

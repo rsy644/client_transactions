@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 use DB;
 
+use App\Client;
+
 class Transaction extends Model
 {
     protected $table = 'transactions';
@@ -13,19 +15,7 @@ class Transaction extends Model
 	
 	public $timestamps = false;
 
-	public static function get_transactions_list(){
-		$query = DB::select('SELECT *
-			FROM transactions ORDER BY first_name ASC');
-
-		return $query;
-	}
-
-	public static function get_transaction_from_id($id){
-		$query = db::select("SELECT *
-			FROM transactions
-			WHERE id = ?",
-			[$id]);
-
-		return $query[0];
+	public function client(){
+		return $this->belongsTo('App\Client');
 	}
 }
