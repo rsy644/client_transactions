@@ -22,6 +22,8 @@ use Illuminate\Support\Facades\DB;
 
 use Illuminate\Support\Facades\Auth;
 
+use Session;
+
 class clientController extends Controller
 {
     /**
@@ -126,9 +128,10 @@ class clientController extends Controller
      */
     public function delete($client_id)
     {
+        $saved_client = Client::findorFail($client_id);
         $client = Client::findOrFail($client_id)->delete();
 
-        return response()->json(['success' => true],200);
+        return response()->json(['code' => 200, 'success' => $saved_client->first_name . ' ' . $saved_client->last_name . ' has been deleted!']);
     }
 
     public function logout(){        

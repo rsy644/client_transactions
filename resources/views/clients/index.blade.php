@@ -19,7 +19,7 @@
 					
 				  		@foreach ($clients as $client)
 				  			<li data-clientID="{{ $client->id }}"><a href="{{ route('clients.show', $client->id) }}">{{ $client->first_name . ' ' . $client->last_name }}</a>
-					  			<span class="delete_button" data-toggle="modal" data-target="#delete_modal_<?php echo $client->id; ?>">x</span>
+					  			<span class="delete_x" data-toggle="modal" data-target="#delete_modal_<?php echo $client->id; ?>" data-model="<?php echo $client->id; ?>">x</span>
 
 					  			<div class="modal fade" id="delete_modal_<?php echo $client->id; ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 									<div class="modal-dialog" role="document">
@@ -49,9 +49,6 @@
 				<p>Welcome! Please use the above link to get started by adding a client.</p>
 
 			@endif
-
-		
-			
 	</div>
 
 @endif
@@ -71,8 +68,10 @@
 
 			var client_id = $(this).data('val');
 
-
+			console.log(client_id);
 			var client = $('li[data-clientID="' + client_id + '"]');
+
+			
 
     		
 

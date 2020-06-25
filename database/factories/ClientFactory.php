@@ -18,8 +18,8 @@ use Illuminate\Support\Facades\Hash;
 
 $factory->define(Client::class, function ($faker) {
     return [
-        'first_name' => Str::random(6),
-        'last_name' => Str::random(10),
+        'first_name' => $faker->firstName,
+        'last_name' => $faker->lastName,
         'avatar' => \Hash::make('password'), // password
         'email' => $faker->email,
     ];
