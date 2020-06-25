@@ -3,6 +3,8 @@
 
 	@if (!Auth::guest()) <!--if user has registered and logged in-->
 
+	<!--form for entering and adding new clients -->
+
 	<div class="table-container">
 
 		<a class="back-link" href="{{ route('clients.index') }}">< Back</a>

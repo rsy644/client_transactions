@@ -11,6 +11,8 @@ class TransactionsTable extends Migration
      *
      * @return void
      */
+
+    /* Creates transactions table */
     public function up()
     {
         Schema::create('transactions', function (Blueprint $table) {

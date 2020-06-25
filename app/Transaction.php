@@ -15,6 +15,8 @@ class Transaction extends Model
 	
 	public $timestamps = false;
 
+	/* sets up many to one relationship */
+
 	public function client(){
 		return $this->belongsTo('App\Client');
 	}

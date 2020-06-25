@@ -3,6 +3,8 @@
 
 	@if (!Auth::guest()) <!--if user has registered and logged in-->
 
+	<!--form for editing a client -->
+
 	<div class="table-container">
 		<a class="back-link" href="{{ route('clients.show', $client->id) }}">< Back</a>
 

@@ -16,6 +16,9 @@ use Illuminate\Support\Facades\Hash;
 |
 */
 
+/* Seeds database to create first user with email admin@admin.com and password
+‘password’ */
+
 $factory->define(User::class, function () {
     return [
         'name' => 'Admin',

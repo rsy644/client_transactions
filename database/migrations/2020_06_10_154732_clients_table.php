@@ -11,6 +11,9 @@ class ClientsTable extends Migration
      *
      * @return void
      */
+
+    /* Creates client table */
+    
     public function up()
     {
         Schema::create('clients', function (Blueprint $table) {

@@ -10,7 +10,7 @@ use Tests\DuskTestCase;
 class CreateClientTest extends DuskTestCase
 {
     /**
-     * A Dusk test example.
+     * Test for creating a dummy client using the client create form.
      *
      * @return void
      */

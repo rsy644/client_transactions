@@ -11,6 +11,8 @@ class UsersTable extends Migration
      *
      * @return void
      */
+
+    /* Creates users table */
     public function up()
     {
         Schema::create('users', function (Blueprint $table) {

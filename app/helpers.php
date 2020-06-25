@@ -4,6 +4,8 @@ use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Laravel\Dusk\Browser;
 use Tests\DuskTestCase;
 
+/* For use with Laravel Dusk testing - logs the browser out of wherever it is on the app and logs in with the default email and password credentials. */
+
 if (! function_exists('setup')) {
 	function setup(Browser $browser){
 			$browser->visit('/logout')

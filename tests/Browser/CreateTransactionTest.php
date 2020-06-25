@@ -14,7 +14,7 @@ use Tests\DuskTestCase;
 class CreateTransactionTest extends DuskTestCase
 {
     /**
-     * A Dusk test example.
+     * Test for creating a dummy transaction with the transactions create form.
      *
      * @return void
      */

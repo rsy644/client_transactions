@@ -15,6 +15,7 @@ class Client extends Model
 	
 	public $timestamps = false;
 
+	/* sets up a one to many relationship */
 	public function transaction(){
 		return $this->hasMany('App\Transaction');
 	}

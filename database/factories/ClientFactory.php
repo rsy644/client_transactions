@@ -16,6 +16,8 @@ use Illuminate\Support\Facades\Hash;
 |
 */
 
+/* Creates dummy data for the clients table using the client factory */
+
 $factory->define(Client::class, function ($faker) {
     return [
         'first_name' => $faker->firstName,
