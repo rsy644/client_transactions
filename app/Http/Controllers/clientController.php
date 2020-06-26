@@ -103,7 +103,7 @@ class clientController extends Controller
      */
     public function show($id)
     {
-        $transactions = DB::table('transactions')->paginate(10);
+        $transactions = DB::table('transactions')->where('client_id', '=', $id)->paginate(10);
         $client = DB::table('clients')->where('id', '=', $id)->get();
         return view('clients.show')->with(['client' => $client[0], 'transactions' => $transactions]);
     }

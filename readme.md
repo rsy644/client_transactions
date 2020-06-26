@@ -20,6 +20,16 @@
 
 * Inside of the .env file, after the 'APP_KEY=' constant use the following application key: 'ABCDEF123ERD456EABCDEF123ERD456E'. Then run 'php artisan config cache'.
 
-* Navigate to http://127.0.0.1:8000 in your url field, and log in with 'admin@admin.com' and password: 'password'. The app will then launch.
+* Navigate to http://127.0.0.1:8000 in your url field, and log in with 'admin@admin.com' and password: 'password'. The app will then launch, and display the 8 clients that were initially populated with the seeder.
+
+* Click 'add' to add a new client to the list.
+
+* Click on the blue client name to see the details of any of the existing clients, and a list of their associated transactions.
+
+* Click on the grey cross ('x') next to each of the client names to delete a client.
+
+* Transactions can be added, deleted or edited in a similar fashion, within each of the client panels.
+
+* A full list of all the transactions in the system is available from the 'Transactions' menu item in the left hand sidebar. These transactions can be deleted in turn.
 
 * There are some browser tests located in the folder: ('/tests/Browser'). To run these tests, use the command 'php artisan dusk' when inside of the laravel root directory.

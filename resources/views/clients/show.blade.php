@@ -5,7 +5,11 @@
 	<div class="table-container">
 		<a class="back-link" href="{{ route('clients.index') }}">< Back</a>
 
-		<?php echo '<img class="client-avatar" src="' . Config::get('app.url') . '/storage/' . $client->avatar . '"/>'; ?>
+		<?php
+			if(strlen($client->avatar) <= 30){// checks whether image is dummy data (from factory) or real
+				echo '<img class="client-avatar" src="' . Config::get('app.url') . '/storage/' . $client->avatar . '"/>';
+			}
+		?>
 		<h1 class="client-title">{{{ $client->first_name . ' ' . $client->last_name }}}</h1>
 
 		<div class="admin-links">

@@ -73,8 +73,8 @@ label.form-check-label {
 }
 
 .back-link {
-    float: left;
-    margin-bottom: 30px !important;
+    display: block;
+    margin-bottom: 20px;
 }
 
 .delete_x {
