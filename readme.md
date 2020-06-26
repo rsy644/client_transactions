@@ -21,3 +21,5 @@
 * Inside of the .env file, after the 'APP_KEY=' constant use the following application key: 'ABCDEF123ERD456EABCDEF123ERD456E'. Then run 'php artisan config cache'.
 
 * Navigate to http://127.0.0.1:8000 in your url field, and log in with 'admin@admin.com' and password: 'password'. The app will then launch.
+
+* There are some browser tests located in the folder: ('/tests/Browser'). To run these tests, use the command 'php artisan dusk' when inside of the laravel root directory.
