@@ -31,8 +31,7 @@ class transactionController extends Controller
      */
     public function index()
     {
-        $transactions = DB::table('transactions')->paginate(10);
-        
+        $transactions = DB::table('transactions')->paginate(10);        
         return view('transactions.index')->with('transactions', $transactions);
     }
 

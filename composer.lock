@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d1d54b4b2704900411aaf667b756406c",
+    "content-hash": "f75731047c9627e76459c4efc554efff",
     "packages": [
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -582,16 +582,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v6.18.20",
+            "version": "v6.18.22",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "2862a9857533853bb2851bac39d65e3bfb8ba6cd"
+                "reference": "95f33151375bb2e4747b871854c8becc23502901"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/2862a9857533853bb2851bac39d65e3bfb8ba6cd",
-                "reference": "2862a9857533853bb2851bac39d65e3bfb8ba6cd",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/95f33151375bb2e4747b871854c8becc23502901",
+                "reference": "95f33151375bb2e4747b871854c8becc23502901",
                 "shasum": ""
             },
             "require": {
@@ -726,7 +726,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2020-06-16T13:21:33+00:00"
+            "time": "2020-06-24T13:08:51+00:00"
         },
         {
             "name": "laravel/tinker",
@@ -915,16 +915,16 @@
         },
         {
             "name": "league/commonmark",
-            "version": "1.5.0",
+            "version": "1.5.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/commonmark.git",
-                "reference": "fc33ca12575e98e57cdce7d5f38b2ca5335714b3"
+                "reference": "6d74caf6abeed5fd85d6ec20da23d7269cd0b46f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/commonmark/zipball/fc33ca12575e98e57cdce7d5f38b2ca5335714b3",
-                "reference": "fc33ca12575e98e57cdce7d5f38b2ca5335714b3",
+                "url": "https://api.github.com/repos/thephpleague/commonmark/zipball/6d74caf6abeed5fd85d6ec20da23d7269cd0b46f",
+                "reference": "6d74caf6abeed5fd85d6ec20da23d7269cd0b46f",
                 "shasum": ""
             },
             "require": {
@@ -1006,7 +1006,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2020-06-21T20:50:13+00:00"
+            "time": "2020-06-27T12:50:08+00:00"
         },
         {
             "name": "league/flysystem",
@@ -4240,20 +4240,20 @@
         },
         {
             "name": "myclabs/deep-copy",
-            "version": "1.9.5",
+            "version": "1.10.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/myclabs/DeepCopy.git",
-                "reference": "b2c28789e80a97badd14145fda39b545d83ca3ef"
+                "reference": "5796d127b0c4ff505b77455148ea9d5269d99758"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/myclabs/DeepCopy/zipball/b2c28789e80a97badd14145fda39b545d83ca3ef",
-                "reference": "b2c28789e80a97badd14145fda39b545d83ca3ef",
+                "url": "https://api.github.com/repos/myclabs/DeepCopy/zipball/5796d127b0c4ff505b77455148ea9d5269d99758",
+                "reference": "5796d127b0c4ff505b77455148ea9d5269d99758",
                 "shasum": ""
             },
             "require": {
-                "php": "^7.1"
+                "php": "^7.1 || ^8.0"
             },
             "replace": {
                 "myclabs/deep-copy": "self.version"
@@ -4284,7 +4284,13 @@
                 "object",
                 "object graph"
             ],
-            "time": "2020-01-17T21:11:47+00:00"
+            "funding": [
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/myclabs/deep-copy",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2020-06-28T07:02:41+00:00"
         },
         {
             "name": "nunomaduro/collision",
@@ -4454,25 +4460,25 @@
         },
         {
             "name": "phpdocumentor/reflection-common",
-            "version": "2.1.0",
+            "version": "2.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpDocumentor/ReflectionCommon.git",
-                "reference": "6568f4687e5b41b054365f9ae03fcb1ed5f2069b"
+                "reference": "1d01c49d4ed62f25aa84a747ad35d5a16924662b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpDocumentor/ReflectionCommon/zipball/6568f4687e5b41b054365f9ae03fcb1ed5f2069b",
-                "reference": "6568f4687e5b41b054365f9ae03fcb1ed5f2069b",
+                "url": "https://api.github.com/repos/phpDocumentor/ReflectionCommon/zipball/1d01c49d4ed62f25aa84a747ad35d5a16924662b",
+                "reference": "1d01c49d4ed62f25aa84a747ad35d5a16924662b",
                 "shasum": ""
             },
             "require": {
-                "php": ">=7.1"
+                "php": "^7.2 || ^8.0"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.x-dev"
+                    "dev-2.x": "2.x-dev"
                 }
             },
             "autoload": {
@@ -4499,7 +4505,7 @@
                 "reflection",
                 "static analysis"
             ],
-            "time": "2020-04-27T09:25:28+00:00"
+            "time": "2020-06-27T09:03:43+00:00"
         },
         {
             "name": "phpdocumentor/reflection-docblock",
@@ -4556,25 +4562,24 @@
         },
         {
             "name": "phpdocumentor/type-resolver",
-            "version": "1.2.0",
+            "version": "1.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpDocumentor/TypeResolver.git",
-                "reference": "30441f2752e493c639526b215ed81d54f369d693"
+                "reference": "e878a14a65245fbe78f8080eba03b47c3b705651"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpDocumentor/TypeResolver/zipball/30441f2752e493c639526b215ed81d54f369d693",
-                "reference": "30441f2752e493c639526b215ed81d54f369d693",
+                "url": "https://api.github.com/repos/phpDocumentor/TypeResolver/zipball/e878a14a65245fbe78f8080eba03b47c3b705651",
+                "reference": "e878a14a65245fbe78f8080eba03b47c3b705651",
                 "shasum": ""
             },
             "require": {
-                "php": "^7.2",
+                "php": "^7.2 || ^8.0",
                 "phpdocumentor/reflection-common": "^2.0"
             },
             "require-dev": {
-                "ext-tokenizer": "^7.2",
-                "mockery/mockery": "~1"
+                "ext-tokenizer": "*"
             },
             "type": "library",
             "extra": {
@@ -4598,7 +4603,7 @@
                 }
             ],
             "description": "A PSR-5 based resolver of Class names, Types and Structural Element Names",
-            "time": "2020-06-19T20:22:09+00:00"
+            "time": "2020-06-27T10:12:23+00:00"
         },
         {
             "name": "phpspec/prophecy",
@@ -5697,6 +5702,53 @@
             "description": "Library that helps with managing the version number of Git-hosted PHP projects",
             "homepage": "https://github.com/sebastianbergmann/version",
             "time": "2016-10-03T07:35:21+00:00"
+        },
+        {
+            "name": "staudenmeir/dusk-updater",
+            "version": "v1.2.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/staudenmeir/dusk-updater.git",
+                "reference": "4c6ae6731b8fd558f7b9b976b2e5cff63ea9b071"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/staudenmeir/dusk-updater/zipball/4c6ae6731b8fd558f7b9b976b2e5cff63ea9b071",
+                "reference": "4c6ae6731b8fd558f7b9b976b2e5cff63ea9b071",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.1.3",
+                "symfony/process": "^4.2 || ^5.0"
+            },
+            "require-dev": {
+                "orchestra/testbench": "^5.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Staudenmeir\\DuskUpdater\\DuskServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Staudenmeir\\DuskUpdater\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jonas Staudenmeir",
+                    "email": "mail@jonas-staudenmeir.de"
+                }
+            ],
+            "description": "Updater for Laravel Dusk ChromeDriver binaries",
+            "time": "2020-05-21T23:13:32+00:00"
         },
         {
             "name": "theseer/tokenizer",

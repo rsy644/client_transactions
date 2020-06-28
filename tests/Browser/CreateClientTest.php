@@ -21,7 +21,7 @@ class CreateClientTest extends DuskTestCase
             setup($browser); // logs user into the application
             $first_name = Str::random(6);
             $last_name = Str::random(10);
-            $logo = 'C:\Users\Rob\Documents\Development\logos\starbucks.jpg';
+            $logo = URL::asset('/img/shell_logo.png');
             $email = Str::random(5);
             $browser->visit('/clients/create')
             ->type('first_name', $first_name)
