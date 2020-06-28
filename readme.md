@@ -32,4 +32,10 @@
 
 * A full list of all the transactions in the system is available from the 'Transactions' menu item in the left hand sidebar. These transactions can be deleted in turn.
 
-* There are some browser tests located in the folder ('/tests/Browser'), written with Laravel Dusk. You may need to ensure that the chromedrivers are up to date first. To double check this, run 'php artisan dusk:chrome-driver --all'. Then to run the tests, use the command 'php artisan dusk' when inside of the laravel root directory. 
+# Testing
+
+* There are some browser tests located in the folder ('/tests/Browser'), written with Laravel Dusk. To run the tests, use the command 'php artisan dusk' when inside of the laravel root directory. 
+
+* You may need to ensure that the chromedrivers are up to date first. To double check this, run 'php artisan dusk:chrome-driver --all'.
+
+* If you are experiencing connection issues you might want to run the chrome driver first of all in a separate window by using the command './vendor/laravel/dusk/bin/chromedriver-win.exe" --verbose', and then in a different console run the command 'php artisan dusk'. 
