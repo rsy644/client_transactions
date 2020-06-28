@@ -28,7 +28,7 @@ class CreateTransactionTest extends DuskTestCase
             $date = $this->faker->date('d/m/Y');
             $browser->
             visit('/')
-             ->click('ul.client_list li:first-child a')
+             ->click('ul.client_list li:nth-of-type(1) a')
              ->click('.admin-links a:nth-of-type(2)')
              ->type('transaction_date', $date)
              ->type('amount', $this->faker->numberBetween(0, 10000))
