@@ -57,10 +57,10 @@ class clientController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'first_name' => ['required', 'unique:clients', 'max:255'],
-            'last_name' => ['required', 'unique:clients', 'max:255'],
+            'first_name' => ['required', 'max:255'],
+            'last_name' => ['required', 'max:255'],
             'avatar' => 'required',
-            'email' => ['required', 'unique:clients', 'email:rfc,dns']
+            'email' => ['required', 'email:rfc,dns']
         ]);
 
         if($request->update == 1){
