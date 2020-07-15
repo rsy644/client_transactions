@@ -16,4 +16,12 @@ if (! function_exists('setup')) {
 	}
 }
 
+
+if (! function_exists('logout')) {
+    function logout(){
+        Auth::logout();
+        return redirect('/');
+    }
+}
+
 ?>

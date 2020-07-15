@@ -57,9 +57,10 @@ class clientController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'first_name' => ['required', 'max:255'],
-            'last_name' => ['required', 'max:255'],
-            'email' => ['required', 'email:rfc,dns']
+            'first_name' => ['required', 'unique:clients', 'max:255'],
+            'last_name' => ['required', 'unique:clients', 'max:255'],
+            'avatar' => 'required',
+            'email' => ['required', 'unique:clients', 'email:rfc,dns']
         ]);
 
         if($request->update == 1){
@@ -68,11 +69,6 @@ class clientController extends Controller
         } else {
             $client = new Client();
             $action = 'created';
-            $request->validate([
-                'first_name' => ['unique:clients'],
-                'last_name' => ['unique:clients'],
-                'avatar' => 'required'
-            ]);
         }
 
         if(!isset($client->first_name) || $client->first_name != $request->first_name){
@@ -132,12 +128,5 @@ class clientController extends Controller
         $client = Client::findOrFail($client_id)->delete();
 
         return response()->json(['code' => 200, 'success' => $saved_client->first_name . ' ' . $saved_client->last_name . ' has been deleted!']);
-    }
-
-    public function logout(){        
-
-        Auth::logout();
-
-        return redirect('/');
     }
 }
